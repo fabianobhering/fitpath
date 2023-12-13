@@ -1,0 +1,40 @@
+# Cores
+
+PRETO="0;30m"
+AZUL_ESC="0;34m"
+VERDE_ESC="0;32m"
+CYAN_ESC="0;36m"
+VERMELHO_ESC="0;31m"
+ROXO_ESC="0;35m"
+CINZA_ESC="1;30m"
+MARROM="0;33m"
+CINZA="0;37m"
+AZUL="1;34m"
+VERDE="1;32m"
+CYAN="1;36m"
+VERMELHO="1;31m"
+ROXO="1;35m"
+AMARELO="1;33m"
+BRANCO="1;37m"
+
+MUDA_COR=printf "\033[%s"
+RESETA_COR=printf "\033[0m"
+
+# Comandos
+
+RM=rm
+
+# Flags
+
+ECHO_FLAGS=-ne
+
+INDET=\\t
+
+RM_FLAGS=-f
+RM_REDIRECT=&> /dev/null
+
+ARQ_CLEAN=${OBJ} ${LIB} ${EXEC_NAME}
+ESPACO=\ 
+
+QUEBRA_LINHA=echo
+

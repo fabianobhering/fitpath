@@ -1,0 +1,52 @@
+Este arquivo descreve brevemente o processo de compilação e utilização do protocolo
+SLSP. O SLSP é um protocolo de roteamento simples, baseado em estado de enlaces, para 
+redes em malha sem fio. Este protocolo implementa 4 métricas diferentes:
+
+    - Hop Count.
+    - ETX.
+    - ML.
+    - MARA (e variações).
+
+ - Compilação.
+
+O processo de compilação é bastante simples. De modo geral, pode ser suficiente apenas
+dar o comando 'make' no diretório raiz (diretório deste README). No entanto, para gerar
+o executável para execução nos roteadores é preciso informar ao make alguns parâmetros:
+
+    - CC: caminho para o compilador C capaz de gerar código para a arquitetura dos roteadores.
+    - LD: caminho para o linker para a arquitetura dos roteadores.
+    - STRIP: caminho para o utilitário strip, próprio para a arquitetura dos roteadores.
+
+
+No caso dos roteadores Linksys wrt54G, estas ferramentas podem ser obtidas a partir do SDK 
+do OpenWRT (http://openwrt.org).
+
+O processo automático de compilação é capaz também de gerar uma documentação do código fonte,
+utilizando a ferramenta doxygen. Para que isso funcione, é necessário ter instalada tal ferramenta.
+Para gerar a documentação, pode-se utilizar o comando:
+
+# make docs
+
+ - Instalação.
+
+A instalação do protocolo é manual. A compilação gera um único executável que pode ser copiado 
+manualmente para o diretório que o usuário julgar mais conveniente (seja na máquina local, seja
+no roteador). O nome do executável gerado é slsp, e se localiza no diretório raiz dos fontes.
+
+ - Utilização.
+
+Antes de utilizar o protocolo, é interessante escrever um arquivo de configuração. Um modelo deste arquivo 
+pode ser encontrado neste diretório (arquivo "mara-rp.conf"). O arquivo apresenta as configurações mais
+comuns. Outras opções mais especializadas podem ser consultadas na documentação do arquivo "defs.h".
+
+O arquivo de configuração pode ser instalado em qualquer diretório. Uma vez escrito, o usuário pode iniciar o
+protocolo com o comando (supondo que o executável slsp esteja no PATH do sistema):
+
+slsp <arquivo_de_configuração>
+
+ - Dependências
+
+O SLSP utiliza threads através da libpthread. A mesma deve estar disponível para compilação. A utilização do MARA
+depende do módulo PPRS. Alguns utilitários comuns do linux também são executados a partir do código.
+
+
